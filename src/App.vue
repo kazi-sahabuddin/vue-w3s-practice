@@ -1,6 +1,8 @@
 <template>
   <h1>Food</h1>
-  <p>Food items are generated with v-for form the 'foods' array.</p>
+  <p><mark>Without the key attribute this page does not work correctly.</mark></p>
+  <p><mark>Notice how the favorite status image on the 'Fish element is transferred to the 'Cake' element when you click the "Remove Item" button. This is not correct.</mark></p>
+  <button @click="removeItem">Remove Item</button>
   <div id="wrapper">
     <food-item
     v-for="x in foods"
@@ -45,6 +47,11 @@ export default{
         }
       ]
     };
+  },
+  methods: {
+    removeItem(){
+      this.foods.splice(1,1);
+    }
   }
 }
 
