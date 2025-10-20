@@ -6,6 +6,7 @@
   <div id="wrapper">
     <food-item
     v-for="x in foods"
+    :key="x.name"
     :food-name="x.name"
     :food-desc="x.desc"
     :is-favorite="x.favorite"

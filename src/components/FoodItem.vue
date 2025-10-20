@@ -5,7 +5,7 @@
         <img src="../assets/images/img_quality.svg" v-show="foodIsFavorite"/>
     </h2>
     <p>{{ foodDesc }}</p>
-    <button v-on:click="toggleFavorite">Favorite</button>
+    <button v-on:click.stop="toggleFavorite">Favorite</button>
    </div>
 </template>
 
