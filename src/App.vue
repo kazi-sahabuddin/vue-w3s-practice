@@ -8,7 +8,14 @@
   </div>
 </template>
 
-<script></script>
+<script>
+  import CompOne from './components/CompOne.vue';
+  export default{
+    components: {
+      'comp-one': CompOne
+    }
+  }
+</script>
 
 <style>
   p {
