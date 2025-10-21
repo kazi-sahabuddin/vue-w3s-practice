@@ -1,22 +1,11 @@
 <template>
   <div>
-    <h3>Global Components</h3>
-    <p>App.vue</p>
-    <p>The CompOne.vue component is used inside both App.vue and CompTwo.vue.</p>
-    <comp-one /> <br/>
-    <comp-two />
+    <h3>Slot in Vue</h3>
+    <p>We send 'Hello World!' as content to the slot tag inside the SlotComp.vue component from App.vue.</p>
+    <slot-comp>Hello world</slot-comp>
   </div>
 </template>
-
-<script>
-  import CompOne from './components/CompOne.vue';
-  export default{
-    components: {
-      'comp-one': CompOne
-    }
-  }
-</script>
-
+<script></script>
 <style>
   p {
     width: 200px;
@@ -26,13 +15,5 @@
     margin: 10px;
     padding: 10px;
     display: inline-block;
-  }
-
-  .compOneDiv {
-    background-color: lightgreen;
-  }
-
-  .compTwoDiv {
-    background-color: lightcoral;
   }
 </style>
