@@ -1,84 +1,38 @@
 <template>
-  <h1>Food</h1>
-  <p><mark>Without the key attribute this page does not work correctly.</mark></p>
-  <p><mark>Notice how the favorite status image on the 'Fish element is transferred to the 'Cake' element when you click the "Remove Item" button. This is not correct.</mark></p>
-  <button @click="removeItem">Remove Item</button>
-  <div id="wrapper">
-    <food-item
-    v-for="x in foods"
-    :key="x.name"
-    :food-name="x.name"
-    :food-desc="x.desc"
-    :is-favorite="x.favorite"
-    @toggle-favorite="receiveEmit"
+  <h3>Todo List</h3>
+  <ul>
+    <todo-item
+    v-for="x in items"
+    :key="x"
+    :item-name="x"
+    style="background-color: lightgreen;"
     />
-  </div>
-
+  </ul>
+  <input v-model="newItem"/>
+  <button @click="addItem">Add</button>
 </template>
 
 <script>
-
-export default{
-  data() {
-    return {
-      foods: [
-        {
-          name: 'Apples',
-          desc: "Apples are a type of fruit that grow on trees.",
-          favorite: true
-        },
-        {
-          name: 'Pizza',
-          desc: "Pizza has a bread base with tomato sauce, cheese and toppings on top",
-          favorite: false
-        },
-        {
-          name: 'Rice',
-          desc: 'Rice is a type of grain that people like to eat.',
-          favorite: false
-        },
-        {
-          name: 'Fish',
-          desc: 'Fish is an animal that lives in water.',
-          favorite: true
-        },
-        {
-          name: 'Cake',
-          desc: 'Cake is something sweet that tastes good.',
-          favorite: false
-        }
-      ]
-    };
-  },
-  methods: {
-    receiveEmit(foodId){
-      let foundFood = this.foods.find(
-        food => food.name === foodId
-      );
-      foundFood.favorite = !foundFood.favorite;
+  export default{
+    data (){
+      return{
+        newItem: '',
+        items: ['Buy apples', 'Make pizza', 'Mow the lawn']
+      };
+    },
+    methods: {
+      addItem() {
+        this.items.push(this.newItem);
+        this.newItem = '';
+      }
     }
   }
-}
-
 </script>
 
 <style>
-
-#wrapper {
-  display: flex;
-  flex-wrap: wrap;
+ul {
+  width: 150px;
+  list-style-type: none;
+  padding-left: 10px;
 }
-
-#wrapper > div {
-  border: dashed black 1px;
-  display: inline-block;
-  margin: 10px;
-  padding: 10px;
-  background-color: lightgreen;
-}
-
-#wrapper > div:hover {
-  cursor: pointer;
-}
-
 </style>
