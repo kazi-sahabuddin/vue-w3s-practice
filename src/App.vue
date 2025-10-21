@@ -1,38 +1,31 @@
 <template>
-  <h3>Todo List</h3>
-  <ul>
-    <todo-item
-    v-for="x in items"
-    :key="x"
-    :item-name="x"
-    style="background-color: lightgreen;"
-    />
-  </ul>
-  <input v-model="newItem"/>
-  <button @click="addItem">Add</button>
+  <div>
+    <h3>Global Components</h3>
+    <p>App.vue</p>
+    <p>The CompOne.vue component is used inside both App.vue and CompTwo.vue.</p>
+    <comp-one /> <br/>
+    <comp-two />
+  </div>
 </template>
 
-<script>
-  export default{
-    data (){
-      return{
-        newItem: '',
-        items: ['Buy apples', 'Make pizza', 'Mow the lawn']
-      };
-    },
-    methods: {
-      addItem() {
-        this.items.push(this.newItem);
-        this.newItem = '';
-      }
-    }
-  }
-</script>
+<script></script>
 
 <style>
-ul {
-  width: 150px;
-  list-style-type: none;
-  padding-left: 10px;
-}
+  p {
+    width: 200px;
+  }
+  #app div {
+    border: dashed black 1px;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+  }
+
+  .compOneDiv {
+    background-color: lightgreen;
+  }
+
+  .compTwoDiv {
+    background-color: lightcoral;
+  }
 </style>
