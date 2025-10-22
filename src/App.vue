@@ -1,13 +1,18 @@
 <template>
- <h3>Slots in vue</h3>
- <p>We create card-like div boxes from the foods array.</p>
+ <h2>Re-usable Slot Cards</h2>
+  <p>We create card-like div boxes from the foods array.</p>
+  <p>We also create a card-like footer by reusing the same component.</p>
   <div id="wrapper">
     <slot-comp v-for="x in foods">
       <img :src="x.url" :alt="x.name">
       <h4>{{ x.name }}</h4>
-      <p>{{ x.desc }}</p>
     </slot-comp>
   </div>
+  <footer>
+      <slot-comp>
+      <h3>Footer</h3>
+    </slot-comp>
+  </footer>
 </template>
 
 <script>
@@ -31,11 +36,22 @@
  #wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+ }
+
+ #wrapper > div{
+  background-color: lightgreen;
  }
 
  #wrapper img {
   display: block;
   margin: auto;
   width: 60%;
+ }
+ footer > div{
+  background-color: lightpink;
+ }
+ h3, h4 {
+  text-align: center;
  }
 </style>
