@@ -1,9 +1,14 @@
 <template>
-    <div class="compOneDiv">
-        <p>CompOne.vue</p>
+    <div>
+        <h2>One!</h2>
+        <p>This is component one.</p>
     </div>
 </template>
 
 <script></script>
 
-<style></style>
+<style scoped>
+    div{
+        background-color: lightgreen;
+    }
+</style>
