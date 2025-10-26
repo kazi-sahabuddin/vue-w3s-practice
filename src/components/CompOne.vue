@@ -1,7 +1,11 @@
 <template>
     <div>
-        <h2>One!</h2>
-        <p>This is component one.</p>
+        <img :src="imgSrc"/>
+        <h2>Component One</h2>
+        <p>Choose food.</p>
+        <label>
+            <input type="radio" name="rbgFood" v-model="imgSrc" :value="/public/"
+        </label>
     </div>
 </template>
 
